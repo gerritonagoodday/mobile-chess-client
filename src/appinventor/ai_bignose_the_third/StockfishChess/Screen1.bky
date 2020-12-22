@@ -1,0 +1,1603 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="global_declaration" id="H~S3Wjyyy]1Di:gdtHW!" x="-694" y="-663">
+    <field name="NAME">squaresize</field>
+    <value name="VALUE">
+      <block type="math_number" id="K-u{Ms6pH(-ax-Gu8]N)">
+        <field name="NUM">50</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="tIgapO){8NV}YPDsUqfS" x="-697" y="-637">
+    <field name="NAME">boardsize</field>
+    <value name="VALUE">
+      <block type="component_set_get" id="l[*njx~H8!NjF#LZ-z:4">
+        <mutation component_type="Canvas" set_or_get="get" property_name="Height" is_generic="false" instance_name="Canvas1"></mutation>
+        <field name="COMPONENT_SELECTOR">Canvas1</field>
+        <field name="PROP">Height</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="E%cP69qOQHXY~8S%9c2Q" x="-698" y="-610">
+    <field name="NAME">fen</field>
+    <value name="VALUE">
+      <block type="text" id="izf,Si(;dytU+3{*wlh|">
+        <field name="TEXT">rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1</field>
+      </block>
+    </value>
+  </block>
+  <block type="global_declaration" id="9DCd?P%#5h(Or,E|E_s)" x="-697" y="-581">
+    <field name="NAME">board</field>
+    <value name="VALUE">
+      <block type="lists_from_csv_row" id="I)@b+Q(*{?2E(C{*h4,)">
+        <value name="TEXT">
+          <block type="text" id="N()z|K3OI0[:[_Zcx7^j">
+            <field name="TEXT">WR1,WN1,WB1,WQ,WK,WB2,WN2,WR2,WP1,WP2,WP3,WP4,WP5,WP6,WP7,WP8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,BP1,BP2,BP3,BP4,BP5,BP6,BP7,BP7,BP8,BR1,BN1,BB1,BQ,BK,BB2,BN2,BR2</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defnoreturn" id="}RI=@5tg}oZLU^oXOk]|" x="400" y="-635">
+    <field name="NAME">PlaceSpritesOnBoard</field>
+    <statement name="STACK">
+      <block type="procedures_callnoreturn" id="l|jN2SC@M^R1q?!tx0ws" inline="false">
+        <mutation name="PlaceBR1"></mutation>
+        <field name="PROCNAME">PlaceBR1</field>
+        <next>
+          <block type="procedures_callnoreturn" id=")qpe38,0+qrl48J!OQY5" inline="false">
+            <mutation name="PlaceBN1"></mutation>
+            <field name="PROCNAME">PlaceBN1</field>
+            <next>
+              <block type="procedures_callnoreturn" id=")ubjmo%5-GW#|R/Dgk*+" inline="false">
+                <mutation name="PlaceBB1"></mutation>
+                <field name="PROCNAME">PlaceBB1</field>
+                <next>
+                  <block type="procedures_callnoreturn" id="52l2m3Xb|uTmG$SKC7xM" inline="false">
+                    <mutation name="PlaceBQ"></mutation>
+                    <field name="PROCNAME">PlaceBQ</field>
+                    <next>
+                      <block type="procedures_callnoreturn" id="lGP./W%sK{4P_obZRACT" inline="false">
+                        <mutation name="PlaceBK"></mutation>
+                        <field name="PROCNAME">PlaceBK</field>
+                        <next>
+                          <block type="procedures_callnoreturn" id="9dPC7~y9i*+XTthM8{q=" inline="false">
+                            <mutation name="PlaceBB2"></mutation>
+                            <field name="PROCNAME">PlaceBB2</field>
+                            <next>
+                              <block type="procedures_callnoreturn" id="(dIru@z7Yy@=kSl${T_D" inline="false">
+                                <mutation name="PlaceBN2"></mutation>
+                                <field name="PROCNAME">PlaceBN2</field>
+                                <next>
+                                  <block type="procedures_callnoreturn" id="-Q!gU$0=YX/;-#n|R~U]" inline="false">
+                                    <mutation name="PlaceBR2"></mutation>
+                                    <field name="PROCNAME">PlaceBR2</field>
+                                    <next>
+                                      <block type="procedures_callnoreturn" id="LC8h71n0(]7+BbiD),Z6" inline="false">
+                                        <mutation name="PlaceBP1"></mutation>
+                                        <field name="PROCNAME">PlaceBP1</field>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="global_declaration" id="AUh2L+._uG8w$R-DML2t" x="-701" y="-549">
+    <field name="NAME">boardIndex</field>
+    <value name="VALUE">
+      <block type="math_number" id="|xP*4yxHG(ZYan7iqQK1">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="component_event" id="}02!_s*fu4yVuPoKgdp6" x="-686" y="-494">
+    <mutation component_type="Button" is_generic="false" instance_name="btnNewGame" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">btnNewGame</field>
+    <comment pinned="false" h="48" w="339">Preparing data and layout</comment>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id="xAB0Z`;3z-N56@axhLfI" inline="false">
+        <mutation name="InitializeBoard"></mutation>
+        <field name="PROCNAME">InitializeBoard</field>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="+m0n_~iBVIw1-MgXxN@:" x="-684" y="-411">
+    <mutation component_type="Form" is_generic="false" instance_name="Screen1" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="procedures_callnoreturn" id=")%kJT0-[OWWz/WFLcj!J" inline="false">
+        <mutation name="InitializeBoard"></mutation>
+        <field name="PROCNAME">InitializeBoard</field>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="guo9=~[xdj4Z:fRGlLz6" x="-679" y="-322">
+    <field name="NAME">InitializeBoard</field>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="DL?iMy9P6jROlm3=]5[H">
+        <field name="VAR">global board</field>
+        <value name="VALUE">
+          <block type="lists_copy" id="ADKB~j)dR=TVzB~Pn!bp">
+            <value name="LIST">
+              <block type="lists_from_csv_row" id="ove1gl-%C%(4|YA+kQIT">
+                <value name="TEXT">
+                  <block type="text" id="|Shb3oPPvrjzP/1)|R]S">
+                    <field name="TEXT">WR1,WN1,WB1,WQ,WK,WB2,WN2,WR2,WP1,WP2,WP3,WP4,WP5,WP6,WP7,WP8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,BP1,BP2,BP3,BP4,BP5,BP6,BP7,BP7,BP8,BR1,BN1,BB1,BQ,BK,BB2,BN2,BR2</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="YpP3o))IphI%+heS(1]R" inline="false">
+            <mutation name="PlaceSpritesOnBoard"></mutation>
+            <field name="PROCNAME">PlaceSpritesOnBoard</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="{4N#BUTPC`2r%MWT._mB" x="-659" y="25">
+    <field name="NAME">PlaceBR1</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="g1/Ib)iGVj80=39Pj|Kf">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id="MvN3^RZFvwz]e6`HE5=A">
+            <value name="ITEM">
+              <block type="text" id="12WwkJ{@jxD=WFxg/7W8">
+                <field name="TEXT">BR1</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="Qln1X1jh?|D3W,6pd.3Q">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="bPba8){X6]M+4`8lpHo4">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="RYN1G#h:M(cwnVNZJMt9">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="(}EYku[wX-s5UFatovPQ">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="5$D=oxSx2Svrym:j5#E%">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="d[^q:DMx3v}$QL;hby3P">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBR1"></mutation>
+                <field name="COMPONENT_SELECTOR">spBR1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="7)c|+[|uN`)AK~BJpxxG">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="BMv`xa^JK~hPs6dTz4],">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBR1"></mutation>
+                <field name="COMPONENT_SELECTOR">spBR1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="#U?@A6eB8sE)TdJ6%}-,">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="S@r8qKAGcnt:;t_4q{tN">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBR1"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBR1</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id="u~2+|mLZ#sWNAIz!BNm|">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id="`Ut3XBMi{Bq_Bv%45J%x">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="Jgv/RJ@*P85hv9ZYmnf@">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="tXW?~H|D_A_/MdX*z^0P">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="67bSJ^~8wn31.^-*4;qt">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id="DJRYYra7j^d3MsU:GxBr">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="T8rPW3!(WJ|@O,jasIIG">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="4$kn2dkRHgithxz]_RKM">
+                        <value name="A">
+                          <block type="math_number" id="K1G5UCcd;YJlMISs~dQg">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id="T^`[f:hV7:!:osZl+li5">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id="qF2)6aL7/;kMv{-6Tsp3">
+                                <value name="A">
+                                  <block type="math_number" id="$z56dTKmn*-7g*{4YSjF">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id=",7ZEce!WliLvaZmr4OEi">
+                                    <value name="A">
+                                      <block type="math_subtract" id="X/@Dg{@Il38$uanIr:o|">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="v%r$vjdxm[`4@RHy]`@C">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="e:}#MXxP,=$-uWBmna!}">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="X$%U-FeQB.Vy%#$4=Frx">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="l`Ik%|.P{vt4+5|KwKrN">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id=")]^=#i(;L#YkL3Z6MNDB" x="440" y="10">
+    <field name="NAME">PlaceBR2</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="h#7FfGs2CmbOi(5-(#K`">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id=")cwk-$yYQzoew1Z7FX!P">
+            <value name="ITEM">
+              <block type="text" id="O7-x1oe{1.r]Izq;/j$9">
+                <field name="TEXT">BR1</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="w?,|cJv2G)t?r!THAM/,">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="`o.y)gaK|o=L|%2mcI=5">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="OJS9{W,y4h~am|%r3Qo-">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="(,N4fT+e^kwm%~(]%8?7">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="#/(=,!{pB=|y}s[HSG}/">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="9v?T3{w^/v?jm[lZ8Xo[">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBR2"></mutation>
+                <field name="COMPONENT_SELECTOR">spBR2</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="JUCy^UJoaXTYz3j3r[9v">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="_kWVz(:4prP+#Ij-%N-l">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBR2"></mutation>
+                <field name="COMPONENT_SELECTOR">spBR2</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="G7_}tgTgkWSSKz8_Q]EM">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="(%K|.SB[yY[(m%2[4Qd}">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBR2"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBR2</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id="EIN=%U%,mssV5B2mR:Va">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id="wqvP+EQspv;i`S*dmhRw">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="!|@0wpLMJ0^9@LYG0X%o">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="^U}CAQ@N!y_rm@L1KEiw">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="vE@7]Vp#dKRDFezx[_k$">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id="jgLg[*|8c-]FB?y#y)hV">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="?Zb7gCI*Ur8+!tGFnVU2">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="9ag~S}vC.Ft2A*lLm6Qw">
+                        <value name="A">
+                          <block type="math_number" id="VHBL/[-/ivm[)(qz0g7s">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id="vk#lD=7HIw;[cyv~m$3%">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id="yFblkVQ*3CC|5zGj=+O5">
+                                <value name="A">
+                                  <block type="math_number" id="f_?4p.8r@SMjbKJS|UrW">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id="Y+U=RR-uf)akf@}!Wc(f">
+                                    <value name="A">
+                                      <block type="math_subtract" id="MhQp/vV?}P@%1hNhcIU0">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="HC*Bz)M$_}mQU#WOhhB`">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="4NtG%|S9K*iVjb^N;sXB">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="9e~I]T,#mX=pIsEnWqvs">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="K/k9qU:2C_K1{oyIx;xk">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="$B~SY{+|P72cX[=U[KZD" x="-680" y="408">
+    <field name="NAME">PlaceBN1</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="P{{b?%vhH(=h3Z!mE$D#">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id="G(*s4,!E1QY0D$|yhIF$">
+            <value name="ITEM">
+              <block type="text" id="^0c1ZK5nCI2c+iV/02r[">
+                <field name="TEXT">BN1</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id=":39=p-jzP41[-P7PjNV%">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="lCv@Nyn6t*|G98`~2O8r">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="SN[@*K9P*aHgS/=;08!6">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="bmclg|mdxm4Y$DaU]7$v">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="^lF3|l/PpTR]WnJ2AVHG">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="ay[D@8`%5uWBTAewb?Zq">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBN1"></mutation>
+                <field name="COMPONENT_SELECTOR">spBN1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="`;q.1`q=Y9#M.3Q3E`tF">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="m?4iF?*$?^erCm)mGy(x">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBN1"></mutation>
+                <field name="COMPONENT_SELECTOR">spBN1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="ze-%Sz$(b2D3x=YCh+,E">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="J$k#DTxt^)ON.k8agMYy">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBN1"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBN1</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id="bT/#JS8bWO+N[%GV]H[w">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id="if|:Hd%GZv[XUi`q|A={">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="EGl`Piy_{8NbP5-GaMW-">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="+H$sh{|M(}klK17/zzTE">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="4YHIoUZYL[.7{|u/qJ#j">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id="_TQ%rSVO4SZFn+0w+z9_">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="*,Ilzjqfce,m8!Oh^7ft">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="8d]lL^T@Z4m^E{;9~[`T">
+                        <value name="A">
+                          <block type="math_number" id="P!~Wf$.BRr~2G1L!AnRF">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id="NntZ2}QbxM`9qiS@qQ:a">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id="O/cN[2PjwToyrtxWccP4">
+                                <value name="A">
+                                  <block type="math_number" id="573wV8AHMw8p$WtqY,ef">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id="TZO`I^3z1:luYcQ:)5{!">
+                                    <value name="A">
+                                      <block type="math_subtract" id="(P%),dl;u~vRUJ1Mxyg6">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="CLZaSecYhUaN*8R^gu@0">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id=";gP[F93=I6cd#}gb6{)$">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="$XQYn5mnF,pfJf}*m%CO">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="?K]Y8/E(8?A=ns_o.@_P">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="[G=7~JTJGUW:X2J56wU#" x="432" y="402">
+    <field name="NAME">PlaceBN2</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="vYR!lhqM`U(/+j/R|/0J">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id="C=tS.n%*YwDWmK/[U0UQ">
+            <value name="ITEM">
+              <block type="text" id="mG8?2{b9lvX[Q)72esT4">
+                <field name="TEXT">BN2</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id=".VXNBse@vmacX+}lhkjV">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="Qsr9uaL1C9dM$H,Pi(bJ">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="TFb66H!;779B`iYG`2x/">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="]R~tQ5hy,h!Qkaf7_@@!">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="2?~A,bXI|lqPr1(]l~1+">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="}uU]D@0wz)Z%O.a2PE^!">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBN2"></mutation>
+                <field name="COMPONENT_SELECTOR">spBN2</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="{)A`7v.GW+X9#y`=99X3">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="[hV#Ad~aP{{X~IL;*BPN">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBN2"></mutation>
+                <field name="COMPONENT_SELECTOR">spBN2</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="Dt:KNp6EO2]7ruRgFlrD">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="[dgCk)Y;bJl6=_zG=;W}">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBN2"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBN2</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id=")2h?w}p0v8GN@[8[DPTn">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id="X`ZV0CR),UAtEd}KhT^T">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="u|*[6;{RVA`@IP~Cz!4(">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="Y3Vg/z:wp7aLdH^g~Djw">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="UIk?^!dMpKoc)CZ.ECuq">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id="y5%ZrbB?I*zq$8!eKM~?">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="7IG`/e%Gxfq3{ULHePxF">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="sw,Sf$*!F;%6@30pI0SL">
+                        <value name="A">
+                          <block type="math_number" id=":wYx3mkOCGQWv)yG6LA$">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id="/inWY+#eq_N*sQ3~$*dE">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id="e0=(P^B1!KYm9f9PCTi0">
+                                <value name="A">
+                                  <block type="math_number" id="X:_IgnQ2J2`*^ktUmz$~">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id="J3lP))d4+tI_}P)^EKg_">
+                                    <value name="A">
+                                      <block type="math_subtract" id="^490SMRPT9JM`iE~x+7o">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="sZKevZCZWItZX6.)bl`@">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="Smp)`24yT^]/|KF$u,U)">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="b]V~Wd)Zp7I5ED!Y(VQj">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="6;uH?TkPq`_ih-(qoPgI">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="G#SwP2fh(Ft2pZ;tlIyx" x="-690" y="799">
+    <field name="NAME">PlaceBB1</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="U:2TS:[4@]f/lS$Kje!Y">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id="Y:74ehBuJ[Z6Vn/LG9X+">
+            <value name="ITEM">
+              <block type="text" id="w||ZGr%(*D,~$7uU5{sT">
+                <field name="TEXT">BB1</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="~;Sq=0uyJ)PxxXVnwgJ3">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="trEs0=M`^v)yV3GvViXZ">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="H+sjuqFJ)ZT4ZJ@n{]lV">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="_QPlwRuT4B=tc_a@w}VR">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="$:Pix}uC-#@qYL^%]eQ{">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="=$:jwH^tep$:tvqX]Vv9">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBB1"></mutation>
+                <field name="COMPONENT_SELECTOR">spBB1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="0SxkKYb|6R^0*IizPU3*">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="n2i[Q-gS|2MxXIzndZ^a">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBB1"></mutation>
+                <field name="COMPONENT_SELECTOR">spBB1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="X4j?~,CvpYZ@U0LC;Kz3">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="}0jRpv+le`*/%f(f?*o|">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBB1"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBB1</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id="hoe@nL5*MC{qehMOPKB^">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id="K^8Cen@!$0LB7-M?fuDU">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="bb;@d@k[^(^Sx^r}f%$8">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="I~,,odcTaD9c^_~}gS!.">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="6zll5:We{)/WWtSi6CP$">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id=")nE/-9^,wTTH-Z^VoVX%">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="0YE/}TzElu*c!m`KKL|V">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="]F;RnH61tQT)eS4T0HI]">
+                        <value name="A">
+                          <block type="math_number" id="Z09B/X.LkYm5PY;kX%UY">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id="V{-608A!DSKWlxDbu6=a">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id="(!+fV+9w!4ZZLC4^KjL6">
+                                <value name="A">
+                                  <block type="math_number" id="wd:.Bh4H]8Gs6|G-IW!%">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id="_ZI!O*Le:]NrkAo{m14K">
+                                    <value name="A">
+                                      <block type="math_subtract" id="R/Dkr{1Awp7U/x@]f$5/">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="#PReu6hOMqtF3?G?5?Ea">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="%8p0)Of?1x*+5[XihQ{!">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="=oD8Jv^N7,pGAfSOpV:R">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="39JOB61l13D#InF[oWJ}">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id=")BsTmM%44P5qH~^k{`SJ" x="440" y="795">
+    <field name="NAME">PlaceBB2</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="`lQzi%zv_I?l@Bwj3lD#">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id="lBxn85CxSvKe,45raM/_">
+            <value name="ITEM">
+              <block type="text" id="jQ/*mp@|LuzSZN:TT,}Z">
+                <field name="TEXT">BB2</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="tuoU~%Mqic{~=Yi(b]~M">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="tNspsyP|$)j=]iiG,Bz$">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="qp7Q@GcSrraFCp~m7b{V">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="J-*OMo=w)*I/28]v#rVy">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="e}SG**7@]Qw^U)!0i*ei">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="X1X`b:vs*$n1GyUN(5[6">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBB2"></mutation>
+                <field name="COMPONENT_SELECTOR">spBB2</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="l.cRi0w,Dw=P)EhJV!DX">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="c]Ymv:._n;;Dm]By3h6@">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBB2"></mutation>
+                <field name="COMPONENT_SELECTOR">spBB2</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="2VZ$i5GL81?;4wWxV(XU">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="*IMOS6[[]AE8[2A*6gmM">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBB2"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBB2</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id="!F?GFI6nc|8Ba$Oe!orH">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id=",PwR:I6IjQlJN,Oa,*12">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="6=6uS~{d.$@N]rj=QxBg">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="8$WddV`+qSP2x(Rj,_|7">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="IblgLHzuTRDR7{STgG2s">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id="%pUWt4|=jcg7nky+|YhZ">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="578gqIO;bv$=`/,ya5$a">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="GxF#CT~vUrpSGX9t;!w5">
+                        <value name="A">
+                          <block type="math_number" id="29(wP~-Kj/gcyc~,!29c">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id="yuk:geW6%gDqC`I2{HJ;">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id=".RsYEFWBYgQz#aqkSS_2">
+                                <value name="A">
+                                  <block type="math_number" id="3=~:{yQxqG[flJ5X3G,q">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id="y{4z{5kj}*o=knD^EeqP">
+                                    <value name="A">
+                                      <block type="math_subtract" id="zdEN80sU?L7*OP$rM-PK">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="Lf8#M^gF(iT@A,!Y~tp^">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="(1j{t8Z7[9DwAt4c,_n/">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="(ZYf[6F+a%X%=-ID4waA">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="h8tJi#XJ9W7;w9(LM/OG">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="%ge@g+HE~u1IOL6fjy9h" x="-689" y="1195">
+    <field name="NAME">PlaceBQ</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="|02lppW]p{ShGW@y7vzS">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id=")Gq5,YG{fF9`B5W`gxY,">
+            <value name="ITEM">
+              <block type="text" id="GY6_`{Sw6zDZ0dZ2rL-d">
+                <field name="TEXT">BQ</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="QE9NuC6UUpHl?tY/2e6/">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="tyzChmGvmy/KnFvL|Z`Q">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="98VQK%xg[Jq9_Ae^.5C:">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="c;o:oXVw@`5AO=Q*FfK*">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="vTx?5eN@E4S_4#5u^]YH">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="hJe%#w_6K$(~^rV7w{Kb">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBQ"></mutation>
+                <field name="COMPONENT_SELECTOR">spBQ</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="6DUV3}~MM8Pi7A{jdU4=">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="X,6f7}XJC0MC]5E~=rmj">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBQ"></mutation>
+                <field name="COMPONENT_SELECTOR">spBQ</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="U5O7P^OEs7*z9TU33:Qo">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="i}qoBN0qNohcT,R,qaVd">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBQ"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBQ</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id="Dk#B%s7T^)a_!N4{a:Ip">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id="uqy_ekVO$1Q$4/sWu^,$">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="PXxz0c7aYa2(G8,eQsfZ">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="a?I)ssIG*wbOwP5H4,x0">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="mvTRgJ4^p@=sd*P6)y_g">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id="JI?f+E%^Jsn?,LvBe6N,">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="N)jFEto}kHfz:,bgnEw8">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="E{2MC-3s@__/mj({.75E">
+                        <value name="A">
+                          <block type="math_number" id="N2}a}%DSuR/P2I46+fEv">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id=";EF0gA8vvoRh0oyXL(l+">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id="Ma13%N@BX:1d@NTi:LP`">
+                                <value name="A">
+                                  <block type="math_number" id=";ZM=V+Z*?+5^LBU]8$i0">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id="[q5gN59%NZsNx=(+j`q,">
+                                    <value name="A">
+                                      <block type="math_subtract" id="%/]/019-(fmd8htb~}RB">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="}fje_^?i7r?ccdeq-T3?">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="M)BGkD;+4qC048E4jQah">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="L$jcHE8cLN~i$nOkp]qS">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="IBrV*L1e:3-k{($_PFmv">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="ilmI3,Yk4i@y[i-X.RVC" x="438" y="1189">
+    <field name="NAME">PlaceBK</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="zFgzhe,g``A}7hpoX6ps">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id="f$u7.Jqt0FQ~VRfS*7=e">
+            <value name="ITEM">
+              <block type="text" id=",2.]2x0pBq3Iptj,C6]6">
+                <field name="TEXT">BK</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="6{D^:;j7fGtov:/[8M=d">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="4,LLi@G@y?:xPy3TY.5*">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="caMe}QK2le;93h=1C/?S">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="Vf8,i+3s7LFC{|EgbeYp">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="rm*L,i/AYZh%~3VbG.@T">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="FmyTwjT14o?#y*yIX0H-">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBK"></mutation>
+                <field name="COMPONENT_SELECTOR">spBK</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="SXt6#fi$Cx!N`Op5njyn">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="J[R.,4TM$)Cqmt?DlD,)">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBK"></mutation>
+                <field name="COMPONENT_SELECTOR">spBK</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="SArP[zMEyXE1?$6d[(P[">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="xQI{YEY5hsp{Z:XJO^S3">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBK"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBK</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id=";^`jG`B]Y~%nm?,M#^Zo">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id="TcuZ37Xj{eg(uz7V_1i]">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="inc9FQ6StVBDk7e8u1Hl">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="=t^%N}A}?*xPh}G9=:DE">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="#NI0*iNf/-yDsupWFix_">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id="|O1W03P9J4]%Y^uJ3@Gr">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="ooeB~3:1*@cD3EkUjU4-">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="~Mxjs`*{mdB:8[uKR5@h">
+                        <value name="A">
+                          <block type="math_number" id="y.vt.y9Rcg_Sj/ozsDKl">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id="{rm+tj05QW#Z)abXh)fj">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id="V7-B2JZqJDp.hq+N%8p6">
+                                <value name="A">
+                                  <block type="math_number" id="OX7p.Xm.rMG})UJ[jlFE">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id="Zqnsj/ax.Kds2S16vN*y">
+                                    <value name="A">
+                                      <block type="math_subtract" id="`xWwuoDGqHs54;q/N]Ci">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="GUWn,(xxZCR[u?Fd@!cD">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="zaRncf`i?p^nuRR96w{e">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id=")@kHT/.zp0F]Q+thdqZh">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="?WY`}^p(WH0CeyUi5bK)">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id=",zJ+mGZqlzWAj3ka@u5J" x="-691" y="1603">
+    <field name="NAME">PlaceBP1</field>
+    <comment pinned="false" h="110" w="760">Sprite location based on (x,y) at board top left corner starting from (0,), and square index being counted  from bottom left starting 1.
+X = ((index -1)%8) * 50
+Y = 400 - (((7-(index - 1)/8) * 50)
+    </comment>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="1:8+$K4Sg~/g`N{*mP3.">
+        <field name="VAR">global boardIndex</field>
+        <value name="VALUE">
+          <block type="lists_position_in" id="Fin}B8~9-)x3*@zx|.d/">
+            <value name="ITEM">
+              <block type="text" id="FG`4a;ma=V{l(3b(qd]|">
+                <field name="TEXT">BP1</field>
+              </block>
+            </value>
+            <value name="LIST">
+              <block type="lexical_variable_get" id="aANXM9%@tMXg|!c6.*Xr">
+                <field name="VAR">global board</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="ECi3AgG@@EN2Nh.@|)%n">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="$k}nWL`vn:fdhKW9XFb9">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="LTt7@{BmH[7~55OfxdWE">
+                    <field name="VAR">global boardIndex</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="Z`]REUIETc)W4_M2b!f?">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="component_set_get" id="p#XNi/D?NbVYWqUf*l3e">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBP1"></mutation>
+                <field name="COMPONENT_SELECTOR">spBP1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="]%4?QT3RPZ}U0p7-c.GP">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="component_set_get" id="6oTG1~}Rlm{L6#A3`61%">
+                <mutation component_type="ImageSprite" set_or_get="set" property_name="Visible" is_generic="false" instance_name="spBP1"></mutation>
+                <field name="COMPONENT_SELECTOR">spBP1</field>
+                <field name="PROP">Visible</field>
+                <value name="VALUE">
+                  <block type="logic_false" id="SHyerLm.aAdGhvQ{[kUJ">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="@|=bYnnqM|xW[/4$r|@2">
+                    <mutation component_type="ImageSprite" method_name="MoveTo" is_generic="false" instance_name="spBP1"></mutation>
+                    <field name="COMPONENT_SELECTOR">spBP1</field>
+                    <value name="ARG0">
+                      <block type="math_multiply" id="y*HzicW]To93D9*GG^+_">
+                        <mutation items="2"></mutation>
+                        <value name="NUM0">
+                          <block type="math_divide" id="%|nA]N?gGbm{@*N+(Ma:">
+                            <field name="OP">MODULO</field>
+                            <value name="DIVIDEND">
+                              <block type="math_subtract" id="h6E[M9QrC)[Ud0mI0}x,">
+                                <value name="A">
+                                  <block type="lexical_variable_get" id="{c;F4r;QTByjml_fD@t=">
+                                    <field name="VAR">global boardIndex</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="Wh5ksm/lkq44.Mg#CZ1a">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="DIVISOR">
+                              <block type="math_number" id="%he,)dnOKyxhmJ:)]@`B">
+                                <field name="NUM">8</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="NUM1">
+                          <block type="lexical_variable_get" id="}MoUS2~pduup)bV#ZN6b">
+                            <field name="VAR">global squaresize</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="math_subtract" id="=76P4aPx7KFDLv+wG7Zq">
+                        <value name="A">
+                          <block type="math_number" id="x|Hww2*xx$x]G$:cJc$;">
+                            <field name="NUM">400</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_multiply" id="h1E4lH]4?hMOI7-Qp!pN">
+                            <mutation items="2"></mutation>
+                            <value name="NUM0">
+                              <block type="math_subtract" id="vf{hKBo-t5pE01Yhv`MO">
+                                <value name="A">
+                                  <block type="math_number" id="+aCd#4a+~`R9-L8PFn]u">
+                                    <field name="NUM">7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_division" id="C0tj`CbNPVmarsJ~-|M{">
+                                    <value name="A">
+                                      <block type="math_subtract" id="=%[[fR?K#zB7}u8Z,-,v">
+                                        <value name="A">
+                                          <block type="lexical_variable_get" id="(V=2=C4r+6ZH74lb]ei)">
+                                            <field name="VAR">global boardIndex</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="w5Dlq^E-u%*b?[roc98;">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="math_number" id="S1z.Cmnp1:Z3=82pDy[W">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="NUM1">
+                              <block type="lexical_variable_get" id="+XZL;~Bx86=l|(q],*0e">
+                                <field name="VAR">global squaresize</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="208" language-version="33"></yacodeblocks>
+</xml>
